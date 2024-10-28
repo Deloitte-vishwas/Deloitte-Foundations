@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hiding an element</h1>
+    <p id="myEle">This is the element to hide</p>
+    <button onclick="hideElement()">Click to toggle visibility</button>
+
+    <h1>Content Change Example</h1>
+    <br>
+
+    <p id="myEle2">This is the text Content before</p>
+    <button onclick="changeContent()">Change Content</button>
+
+
+    <script>
+        function hideElement(){
+            let myEle = document.getElementById("myEle");
+            // myEle.style.display = "none";
+            myEle.hidden = (myEle.hidden)?false: true;
+        }
+
+        function changeContent(){
+            const myParagraph = document.getElementById("myEle2");
+            myParagraph.textContent = "This is a new content of text";
+        }
+    </script>
+
+</body>
+</html>

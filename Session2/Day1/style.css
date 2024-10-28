@@ -1,0 +1,16 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: normal;
+    font-size: medium;
+    padding: 20px;
+    background-color: burlywood;
+}
+hr{
+    border: 2px solid black;
+}
+#page_header{
+    color: blue;
+}
+label{
+    color: brown;
+}
