@@ -46,8 +46,8 @@ public class Library {
             System.out.println(" No Books in the library. ");
         } else{
             System.out.println("Books in the library: ");
-            books.forEach((isbn,book) -> System.out.println(book));
-//            books.values().forEach(System.out::println);
+//            books.forEach((isbn,book) -> System.out.println(book));
+            books.values().forEach(System.out::println);
 //            for(Map.Entry<String, Book> entry: books.entrySet()){
 //                System.out.println(entry.getValue());
 //            }
