@@ -1,8 +1,6 @@
-package com.cloudthat.librarymanagement;
+package org.example;
 
 public class Book {
-    // access modifiers : public, protected, default, private
-    // private: only access through the class
     private String isbn;
     private String title;
     private String author;
@@ -47,7 +45,5 @@ public class Book {
     public void setAuthor(String author) {
         this.author = author;
     }
-
-
 
 }

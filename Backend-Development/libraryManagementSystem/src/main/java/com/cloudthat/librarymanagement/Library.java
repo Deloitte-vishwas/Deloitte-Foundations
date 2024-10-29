@@ -1,5 +1,7 @@
 package com.cloudthat.librarymanagement;
 
+import com.cloudthat.librarymanagement.exceptions.BookAlreadyExistsException;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -15,20 +17,15 @@ public class Library {
         bookIsbns = new HashSet<>();
     }
 
-    public void addBook(Book book){
+    public void addBook(Book book) throws BookAlreadyExistsException {
         if(!bookIsbns.contains(book.getIsbn())){
             books.put(book.getIsbn(), book);
             bookIsbns.add(book.getIsbn());
         } else{
-            System.out.println("Duplicate book found");
+//            System.out.println("Duplicate book found");
+            throw new BookAlreadyExistsException("Book with ISBN "+book.getIsbn() + " already exists");
         }
 
-//        if(books.containsKey(book.getIsbn())){
-//            System.out.println("Book already exists");
-//        } else{
-//            books.put(book.getIsbn(), book);
-//            System.out.println("Book Added Successfully");
-//        }
     }
 
     // Implement methods for removing a book & displayAllBooks
@@ -46,11 +43,7 @@ public class Library {
             System.out.println(" No Books in the library. ");
         } else{
             System.out.println("Books in the library: ");
-//            books.forEach((isbn,book) -> System.out.println(book));
-            books.values().forEach(System.out::println);
-//            for(Map.Entry<String, Book> entry: books.entrySet()){
-//                System.out.println(entry.getValue());
-//            }
+            books.forEach((isbn,book) -> System.out.println(book));
         }
     }
 
