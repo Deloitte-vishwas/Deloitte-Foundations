@@ -9,11 +9,6 @@
         <property name="isbn" value="1234567"></property>
         <property name="title" value="Introduction to Spring"></property>
     </bean>
-
-    <bean id="..." class="...">
-        <!-- collaborators and configuration for this bean go here -->
-    </bean>
-
     <!-- more bean definitions go here -->
 
 </beans>
