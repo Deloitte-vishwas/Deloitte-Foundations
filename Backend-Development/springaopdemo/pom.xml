@@ -48,5 +48,12 @@
       <artifactId>aspectjweaver</artifactId>
       <version>1.9.22.1</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjtools -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjtools</artifactId>
+      <version>1.9.22.1</version>
+    </dependency>
   </dependencies>
+
 </project>

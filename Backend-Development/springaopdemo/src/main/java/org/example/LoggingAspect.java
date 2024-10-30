@@ -11,13 +11,12 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-@EnableAspectJAutoProxy
 public class LoggingAspect {
 
-    @Pointcut("execution(public void com.example.ShoppingCart.checkout())")
+    @Pointcut("execution(public void com.example.ShoppingCart.checkout(..))")
     public void serviceMethod(){}
 
-    @Before("public void org.example.ShoppingCart.checkout()")
+    @Before("serviceMethod()")
 //    @Before("")
     public void beforeLoggingAdvice(){
         System.out.println("Before Logging Advice Called");
