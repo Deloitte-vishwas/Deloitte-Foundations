@@ -15,6 +15,7 @@ public class App
         ShoppingCart s1 = ctx.getBean(ShoppingCart.class);
 
         s1.checkout("ACCEPTED");
+        s1.sendAmount("ACCEPTED");
 //        System.out.println( "Hello World!" );
     }
 }
