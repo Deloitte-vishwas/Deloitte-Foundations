@@ -15,7 +15,7 @@ public class App
 //        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 
         ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class);
-        Book b1 = (Book) context.getBean("book");
+        Book b1 = context.getBean(Book.class);
         System.out.println(b1);
     }
 }
