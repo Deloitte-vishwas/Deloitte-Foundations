@@ -3,7 +3,7 @@ package org.example;
 public class Book {
     private String isbn;
     private String title;
-    private String author;
+    private Author author;
 
     @Override
     public String toString() {
@@ -17,7 +17,7 @@ public class Book {
     public Book() {
     }
 
-    public Book(String isbn, String title, String author) {
+    public Book(String isbn, String title, Author author) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
@@ -39,12 +39,11 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
-
 }
