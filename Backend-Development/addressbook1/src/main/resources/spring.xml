@@ -4,10 +4,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 		https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="book" class="org.example.Book">
+    <bean id="book" class="org.example.Book" scope="prototype">
         <!-- collaborators and configuration for this bean go here -->
-        <property name="isbn" value="1234567"></property>
-        <property name="title" value="Introduction to Spring"></property>
+        <constructor-arg index="0" value="1234567" type="String" />
+        <constructor-arg index="1" value="Introduction to Spring" type="String" />
+        <constructor-arg index="2" value="James Gosling" type="String" />
+<!--        <property name="isbn" value="1234567"></property>-->
+<!--        <property name="title" value="Introduction to Spring"></property>-->
     </bean>
     <!-- more bean definitions go here -->
 
