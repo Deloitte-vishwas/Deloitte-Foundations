@@ -4,8 +4,6 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.context.annotation.EnableLoadTimeWeaving;
 import org.springframework.stereotype.Component;
 
 
@@ -13,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    @Pointcut("execution(public void com.example.ShoppingCart.checkout(..))")
+    @Pointcut("execution(* com.example.ShoppingCart+.*(..))")
     public void serviceMethod(){}
 
     @Before("serviceMethod()")

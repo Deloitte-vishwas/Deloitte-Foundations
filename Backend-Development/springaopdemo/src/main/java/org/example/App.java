@@ -16,6 +16,6 @@ public class App
 
         s1.checkout("ACCEPTED");
         s1.sendAmount("ACCEPTED");
-//        System.out.println( "Hello World!" );
+
     }
 }
