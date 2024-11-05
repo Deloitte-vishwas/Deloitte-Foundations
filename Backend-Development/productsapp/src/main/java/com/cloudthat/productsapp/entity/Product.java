@@ -1,27 +1,47 @@
 package com.cloudthat.productsapp.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+//@Table(name = "ecommerce_products")
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+//    @Column(name = "ecomm_product_name")
     private String productName;
     private String productDescription;
     private double price;
+    private boolean isEnabled;
+    @Enumerated(EnumType.ORDINAL)
+    private Category category;
+
+    public boolean isEnabled() {
+        return isEnabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public Product() {
     }
 
-    public Product( String productName, String productDescription, double price) {
+    public Product(String productName, String productDescription, double price, boolean isEnabled, Category category) {
         this.productName = productName;
         this.productDescription = productDescription;
         this.price = price;
+        this.isEnabled = isEnabled;
+        this.category = category;
     }
 
     public Long getId() {
