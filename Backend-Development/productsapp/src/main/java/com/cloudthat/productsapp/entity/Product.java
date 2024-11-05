@@ -39,7 +39,7 @@ public class Product {
     @JoinColumn(name = "warranty_id")
     private Warranty warranty;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
      name = "product_shipper",
      joinColumns = @JoinColumn(name = "product_id"),
@@ -123,7 +123,15 @@ public class Product {
         this.warranty = warranty;
     }
 
-    public Product(String productName, String productDescription, double price, boolean isEnabled, Category category, LocalDateTime createdAt, ProductProperties productProperties, Warranty warranty) {
+    public Set<Shipper> getShippers() {
+        return shippers;
+    }
+
+    public void setShippers(Set<Shipper> shippers) {
+        this.shippers = shippers;
+    }
+
+    public Product(String productName, String productDescription, double price, boolean isEnabled, Category category, LocalDateTime createdAt, ProductProperties productProperties, Warranty warranty, Set<Shipper> shippers) {
         this.productName = productName;
         this.productDescription = productDescription;
         this.price = price;
@@ -132,20 +140,8 @@ public class Product {
         this.createdAt = createdAt;
         this.productProperties = productProperties;
         this.warranty = warranty;
+        this.shippers = shippers;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", productName='" + productName + '\'' +
-                ", productDescription='" + productDescription + '\'' +
-                ", price=" + price +
-                ", isEnabled=" + isEnabled +
-                ", category=" + category +
-                ", createdAt=" + createdAt +
-                ", productProperties=" + productProperties +
-                ", warranty=" + warranty +
-                '}';
-    }
+
 }
