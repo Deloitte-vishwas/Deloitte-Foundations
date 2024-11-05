@@ -1,6 +1,10 @@
 package com.cloudthat.productsapp.entity;
 
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -13,8 +17,10 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 //    @Column(name = "ecomm_product_name")
+    @NotBlank
     private String productName;
     private String productDescription;
+    @Min(value = 1)
     private double price;
     private boolean isEnabled;
     @Enumerated(EnumType.ORDINAL)
@@ -25,6 +31,7 @@ public class Product {
     private LocalDateTime createdAt;
 
     @Embedded
+    @Valid
     private ProductProperties productProperties;
 
     public boolean isEnabled() {
