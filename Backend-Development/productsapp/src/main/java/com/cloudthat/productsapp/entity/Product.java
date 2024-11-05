@@ -1,6 +1,9 @@
 package com.cloudthat.productsapp.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 //@Table(name = "ecommerce_products")
@@ -16,6 +19,13 @@ public class Product {
     private boolean isEnabled;
     @Enumerated(EnumType.ORDINAL)
     private Category category;
+
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    @Embedded
+    private ProductProperties productProperties;
 
     public boolean isEnabled() {
         return isEnabled;
@@ -36,12 +46,14 @@ public class Product {
     public Product() {
     }
 
-    public Product(String productName, String productDescription, double price, boolean isEnabled, Category category) {
+    public Product(String productName, String productDescription, double price, boolean isEnabled, Category category, LocalDateTime createdAt, ProductProperties productProperties) {
         this.productName = productName;
         this.productDescription = productDescription;
         this.price = price;
         this.isEnabled = isEnabled;
         this.category = category;
+        this.createdAt = createdAt;
+        this.productProperties = productProperties;
     }
 
     public Long getId() {
@@ -76,13 +88,33 @@ public class Product {
         this.price = price;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public ProductProperties getProductProperties() {
+        return productProperties;
+    }
+
+    public void setProductProperties(ProductProperties productProperties) {
+        this.productProperties = productProperties;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", productName='" + productName + '\'' +
                 ", productDescription='" + productDescription + '\'' +
                 ", price=" + price +
+                ", isEnabled=" + isEnabled +
+                ", category=" + category +
+                ", createdAt=" + createdAt +
+                ", productProperties=" + productProperties +
                 '}';
     }
 }
