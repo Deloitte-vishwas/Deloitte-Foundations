@@ -8,13 +8,14 @@ import jakarta.validation.constraints.NotBlank;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 //@Table(name = "ecommerce_products")
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 //    @Column(name = "ecomm_product_name")
     @NotBlank
@@ -33,6 +34,18 @@ public class Product {
     @Embedded
     @Valid
     private ProductProperties productProperties;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "warranty_id")
+    private Warranty warranty;
+
+    @ManyToMany
+    @JoinTable(
+     name = "product_shipper",
+     joinColumns = @JoinColumn(name = "product_id"),
+     inverseJoinColumns = @JoinColumn(name = "shipper_id")
+    )
+    private Set<Shipper> shippers;
 
     public boolean isEnabled() {
         return isEnabled;
@@ -53,15 +66,6 @@ public class Product {
     public Product() {
     }
 
-    public Product(String productName, String productDescription, double price, boolean isEnabled, Category category, LocalDateTime createdAt, ProductProperties productProperties) {
-        this.productName = productName;
-        this.productDescription = productDescription;
-        this.price = price;
-        this.isEnabled = isEnabled;
-        this.category = category;
-        this.createdAt = createdAt;
-        this.productProperties = productProperties;
-    }
 
     public Long getId() {
         return id;
@@ -111,6 +115,25 @@ public class Product {
         this.productProperties = productProperties;
     }
 
+    public Warranty getWarranty() {
+        return warranty;
+    }
+
+    public void setWarranty(Warranty warranty) {
+        this.warranty = warranty;
+    }
+
+    public Product(String productName, String productDescription, double price, boolean isEnabled, Category category, LocalDateTime createdAt, ProductProperties productProperties, Warranty warranty) {
+        this.productName = productName;
+        this.productDescription = productDescription;
+        this.price = price;
+        this.isEnabled = isEnabled;
+        this.category = category;
+        this.createdAt = createdAt;
+        this.productProperties = productProperties;
+        this.warranty = warranty;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -122,6 +145,7 @@ public class Product {
                 ", category=" + category +
                 ", createdAt=" + createdAt +
                 ", productProperties=" + productProperties +
+                ", warranty=" + warranty +
                 '}';
     }
 }
