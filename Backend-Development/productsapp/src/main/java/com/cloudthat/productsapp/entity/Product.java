@@ -142,6 +142,4 @@ public class Product {
         this.warranty = warranty;
         this.shippers = shippers;
     }
-
-
 }
