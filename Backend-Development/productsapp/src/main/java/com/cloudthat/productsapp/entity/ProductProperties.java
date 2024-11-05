@@ -16,7 +16,8 @@ public class ProductProperties {
         this.productHeight = productHeight;
     }
 
-
+    public ProductProperties() {
+    }
 
     public String getProductColor() {
         return productColor;
