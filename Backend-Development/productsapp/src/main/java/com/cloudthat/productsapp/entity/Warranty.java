@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Warranty {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private int durationInMonths;
