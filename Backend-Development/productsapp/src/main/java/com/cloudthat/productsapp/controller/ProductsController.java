@@ -1,8 +1,12 @@
 package com.cloudthat.productsapp.controller;
 
 import com.cloudthat.productsapp.entity.Product;
+import com.cloudthat.productsapp.model.ApiResponse;
 import com.cloudthat.productsapp.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,9 +26,14 @@ public class ProductsController {
         return productService.getProducts();
     }
 
+//    @GetMapping("/products/{productId}")
+//    public Product getProductByName(@PathVariable("productId") Long productId){
+//        return productService.getProduct(productId);
+//    }
+
     @GetMapping("/products/{productId}")
-    public Product getProductByName(@PathVariable("productId") Long productId){
-        return productService.getProduct(productId);
+    public ResponseEntity<ApiResponse> getProductByName(@PathVariable("productId") Long productId){
+        return new ResponseEntity<ApiResponse>(new ApiResponse(true,"Product Fetch Successful", productService.getProduct(productId)), HttpStatus.OK );
     }
 
     @PutMapping("/products/{productId}")
