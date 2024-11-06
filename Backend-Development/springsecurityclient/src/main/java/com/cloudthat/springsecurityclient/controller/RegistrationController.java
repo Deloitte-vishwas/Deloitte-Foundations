@@ -15,10 +15,8 @@ import com.cloudthat.springsecurityclient.model.UserModel;
 import com.cloudthat.springsecurityclient.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@Slf4j
 public class RegistrationController {
 	
 	@Autowired
@@ -56,7 +54,7 @@ public class RegistrationController {
 		// TODO Auto-generated method stub
 		String url = applicationUrl+ "/verifyRegistration?token="+verificationToken.getToken();
 		// just mimicking email sending here
-		log.info("URL link to verify: {}",url);
+		System.out.println("URL link to verify: {}"+url);
 	}
 
 	private String applicationUrl(HttpServletRequest request) {
