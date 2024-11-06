@@ -20,13 +20,13 @@ public class ProductsController {
     @PostMapping("/products")
     public ResponseEntity<ApiResponse> createProduct(@RequestBody ProductRequest productRequest){
         ProductModel productModel = productService.saveProduct(productRequest);
-        return new ResponseEntity<ApiResponse>(new ApiResponse(true,"Product Fetch Successful", productModel ), HttpStatus.OK );
+        return new ResponseEntity<ApiResponse>(new ApiResponse(true,"Product Created Successfully", productModel ), HttpStatus.OK );
     }
 
     @GetMapping("/products")
     public ResponseEntity<ApiResponse> getAllProducts(){
         List<ProductModel> productModels =  productService.getProducts();
-        return new ResponseEntity<ApiResponse>(new ApiResponse(true,"Product Fetch Successful", productModels ), HttpStatus.OK );
+        return new ResponseEntity<ApiResponse>(new ApiResponse(true,"Products Fetched Successfully", productModels ), HttpStatus.OK );
 
     }
 
@@ -37,18 +37,21 @@ public class ProductsController {
     }
 
     @PutMapping("/products/{productId}")
-    public Product updateProduct(@PathVariable("productId") Long productId, @RequestBody Product product){
-        return productService.updateProduct(productId, product);
+    public ResponseEntity<ApiResponse> updateProduct(@PathVariable("productId") Long productId, @RequestBody ProductRequest productRequest){
+        ProductModel productModel = productService.updateProduct(productId, productRequest);
+        return new ResponseEntity<ApiResponse>(new ApiResponse(true,"Product update Successful", productModel ), HttpStatus.OK );
     }
 
     @DeleteMapping("/products/{productId}")
-    public String deleteProduct(@PathVariable("productId") Long productId){
+    public ResponseEntity<ApiResponse> deleteProduct(@PathVariable("productId") Long productId){
         productService.deleteProduct(productId);
-        return "Product Deleted Successfully";
+        return new ResponseEntity<ApiResponse>(new ApiResponse(true,"Product delete Successful","" ), HttpStatus.OK );
     }
 
     @GetMapping("/products/names/{productName}")
-    public Product getProductByName(@PathVariable("productName") String productName){
-        return productService.getProductByName(productName);
+    public ResponseEntity<ApiResponse> getProductByName(@PathVariable("productName") String productName){
+        ProductModel productModel = productService.getProductByName(productName);
+        return new ResponseEntity<ApiResponse>(new ApiResponse(true,"Product Fetch Successful", productModel ), HttpStatus.OK );
+
     }
 }

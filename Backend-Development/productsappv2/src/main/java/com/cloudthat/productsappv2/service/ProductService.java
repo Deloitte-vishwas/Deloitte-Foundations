@@ -2,7 +2,6 @@ package com.cloudthat.productsappv2.service;
 
 
 
-import com.cloudthat.productsappv2.entity.Product;
 import com.cloudthat.productsappv2.model.ProductModel;
 import com.cloudthat.productsappv2.model.ProductRequest;
 
@@ -15,9 +14,9 @@ public interface ProductService {
 
     ProductModel getProduct(Long productId);
 
-    Product updateProduct(Long productId, Product product);
+    ProductModel updateProduct(Long productId, ProductRequest productRequest);
 
     void deleteProduct(Long productId);
 
-    Product getProductByName(String productName);
+    ProductModel getProductByName(String productName);
 }

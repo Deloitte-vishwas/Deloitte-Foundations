@@ -47,14 +47,13 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public Product updateProduct(Long productId, Product product) {
+    public ProductModel updateProduct(Long productId, ProductRequest productRequest) {
         Product productDB = productRepository.findById(productId).get();
 
-        if(Objects.nonNull(product.getProductName()) && !("".equalsIgnoreCase(product.getProductName()))){
-            productDB.setProductName(product.getProductName());
+        if(Objects.nonNull(productRequest.getProductName()) && !("".equalsIgnoreCase(productRequest.getProductName()))){
+            productDB.setProductName(productRequest.getProductName());
         }
-
-        return productRepository.save(productDB);
+        return productToProductModel(productRepository.save(productDB));
     }
 
     @Override
@@ -63,8 +62,8 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public Product getProductByName(String productName) {
-        return productRepository.findByProductName(productName);
+    public ProductModel getProductByName(String productName) {
+        return productToProductModel(productRepository.findByProductName(productName));
     }
 
     private Product productModelToProduct(ProductModel productModel){
