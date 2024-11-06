@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: productsapp
+  datasource:
+    url: jdbc:mysql://localhost:3306/productsappv2
+    username: root
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      format_sql: true
+      ddl-auto: update

@@ -1,0 +1,21 @@
+package com.cloudthat.productsappv2.service;
+
+
+
+import com.cloudthat.productsappv2.entity.Product;
+
+import java.util.List;
+
+public interface ProductService {
+    Product saveProduct(Product product);
+
+    List<Product> getProducts();
+
+    Product getProduct(Long productId);
+
+    Product updateProduct(Long productId, Product product);
+
+    void deleteProduct(Long productId);
+
+    Product getProductByName(String productName);
+}
