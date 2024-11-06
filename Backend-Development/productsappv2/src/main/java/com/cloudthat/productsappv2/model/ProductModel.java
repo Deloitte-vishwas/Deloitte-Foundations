@@ -4,8 +4,6 @@ package com.cloudthat.productsappv2.model;
 
 import com.cloudthat.productsappv2.entity.Category;
 
-import java.time.LocalDateTime;
-import java.util.Set;
 
 public class ProductModel {
 
