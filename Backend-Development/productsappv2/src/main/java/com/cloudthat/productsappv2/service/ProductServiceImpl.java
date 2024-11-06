@@ -2,12 +2,17 @@ package com.cloudthat.productsappv2.service;
 
 
 import com.cloudthat.productsappv2.entity.Product;
+import com.cloudthat.productsappv2.model.ProductModel;
+import com.cloudthat.productsappv2.model.ProductRequest;
 import com.cloudthat.productsappv2.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+
 
 @Service
 public class ProductServiceImpl implements ProductService{
@@ -16,19 +21,29 @@ public class ProductServiceImpl implements ProductService{
     private ProductRepository productRepository;
 
     @Override
-    public Product saveProduct(Product product) {
+    public ProductModel saveProduct(ProductRequest productRequest) {
+        ProductModel newProductModel = new ProductModel();
+        newProductModel.setProductName(productRequest.getProductName());
+        newProductModel.setPrice(productRequest.getPrice());
+        newProductModel.setCategory(productRequest.getCategory());
 
-        return productRepository.save(product);
+        Product product = productRepository.save(productModelToProduct(newProductModel));
+        return productToProductModel(product);
     }
 
     @Override
-    public List<Product> getProducts() {
-        return productRepository.findAll();
+    public List<ProductModel> getProducts() {
+        List<ProductModel> productModels = new ArrayList<ProductModel>();
+        List<Product> products = productRepository.findAll();
+        for(Product p : products){
+            productModels.add(productToProductModel(p));
+        }
+        return productModels;
     }
 
     @Override
-    public Product getProduct(Long productId) {
-        return productRepository.findById(productId).get();
+    public ProductModel getProduct(Long productId) {
+        return productToProductModel(productRepository.findById(productId).get());
     }
 
     @Override
@@ -50,5 +65,24 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public Product getProductByName(String productName) {
         return productRepository.findByProductName(productName);
+    }
+
+    private Product productModelToProduct(ProductModel productModel){
+        Product product = new Product();
+        product.setId(productModel.getId());
+        product.setProductName(productModel.getProductName());
+        product.setCategory(productModel.getCategory());
+        product.setPrice(product.getPrice());
+        return  product;
+    }
+
+    private ProductModel productToProductModel(Product product){
+        ProductModel productModel = new ProductModel();
+        productModel.setId(product.getId());
+        productModel.setProductName(product.getProductName());
+        productModel.setPrice(product.getPrice());
+        productModel.setCategory(product.getCategory());
+
+        return productModel;
     }
 }

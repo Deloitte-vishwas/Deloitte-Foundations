@@ -3,15 +3,17 @@ package com.cloudthat.productsappv2.service;
 
 
 import com.cloudthat.productsappv2.entity.Product;
+import com.cloudthat.productsappv2.model.ProductModel;
+import com.cloudthat.productsappv2.model.ProductRequest;
 
 import java.util.List;
 
 public interface ProductService {
-    Product saveProduct(Product product);
+    ProductModel saveProduct(ProductRequest productRequest);
 
-    List<Product> getProducts();
+    List<ProductModel> getProducts();
 
-    Product getProduct(Long productId);
+    ProductModel getProduct(Long productId);
 
     Product updateProduct(Long productId, Product product);
 

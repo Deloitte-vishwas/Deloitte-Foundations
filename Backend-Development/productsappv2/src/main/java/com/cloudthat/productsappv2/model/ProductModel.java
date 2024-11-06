@@ -9,9 +9,7 @@ public class ProductModel {
 
     private Long id;
     private String productName;
-
     private double price;
-
     private Category category;
 
 
