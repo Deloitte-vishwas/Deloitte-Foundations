@@ -1,8 +1,8 @@
 package com.cloudthat.productsappv2.event.listener;
 
-import com.cloudthat.elearningbackend.entity.User;
-import com.cloudthat.elearningbackend.event.RegistrationCompleteEvent;
-import com.cloudthat.elearningbackend.service.UserService;
+import com.cloudthat.productsappv2.entity.User;
+import com.cloudthat.productsappv2.event.RegistrationCompleteEvent;
+import com.cloudthat.productsappv2.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;

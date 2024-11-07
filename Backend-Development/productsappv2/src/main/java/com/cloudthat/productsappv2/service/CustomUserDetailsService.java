@@ -1,8 +1,9 @@
 package com.cloudthat.productsappv2.service;
 
-import com.cloudthat.elearningbackend.entity.CustomUserDetails;
-import com.cloudthat.elearningbackend.entity.User;
-import com.cloudthat.elearningbackend.repository.UserRepository;
+
+import com.cloudthat.productsappv2.entity.CustomUserDetails;
+import com.cloudthat.productsappv2.entity.User;
+import com.cloudthat.productsappv2.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
