@@ -21,7 +21,7 @@ public class ProductsController {
     @PostMapping("/products")
     public ResponseEntity<ApiResponse> createProduct(@RequestBody ProductRequest productRequest){
         ProductModel productModel = productService.saveProduct(productRequest);
-        return new ResponseEntity<ApiResponse>(new ApiResponse(true,"Product Created Successfully", productModel ), HttpStatus.OK );
+        return new ResponseEntity<ApiResponse>(new ApiResponse(true,"Product Created Successfully", productModel ), HttpStatus.CREATED );
     }
 
     @GetMapping("/products")
