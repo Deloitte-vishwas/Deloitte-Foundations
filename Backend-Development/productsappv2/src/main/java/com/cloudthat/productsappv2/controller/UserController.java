@@ -17,14 +17,10 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
-
-	@Autowired
-	private UserProfile userProfile;
-
 	
 	@GetMapping("/{userId}/profile")
 	public ResponseEntity<ApiResponse> getUserProfile(@PathVariable("userId") Long userId){
-			userProfile = userService.getUserProfile(userId);
+			UserProfile userProfile = userService.getUserProfile(userId);
 			return new ResponseEntity<ApiResponse>(new ApiResponse(true, "User Fetched Successfully", userProfile), HttpStatus.OK);
 	}
 	

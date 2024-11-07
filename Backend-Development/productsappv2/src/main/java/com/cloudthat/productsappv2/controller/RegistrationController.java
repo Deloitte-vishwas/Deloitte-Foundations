@@ -26,9 +26,6 @@ import org.springframework.web.bind.annotation.*;
 public class RegistrationController {
 
 	@Autowired
-	private VerificationToken verificationToken;
-
-	@Autowired
     private JWTUtility jwtUtility;
 
     @Autowired
@@ -95,7 +92,7 @@ public class RegistrationController {
 	
 	@GetMapping("resendVerifytoken")
 	public String resendVerificaionToken(@RequestParam("token") String oldToken, HttpServletRequest httpServletRequest) {
-		verificationToken = userService.generateNewVerificationToken(oldToken);
+		VerificationToken verificationToken = userService.generateNewVerificationToken(oldToken);
 		User user = verificationToken.getUser();
 		resendVerificationTokenMail(user,applicationUrl(httpServletRequest), verificationToken);
 		return "Verification link Sent";
