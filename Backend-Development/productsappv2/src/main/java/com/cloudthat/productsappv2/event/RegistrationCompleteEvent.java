@@ -1,6 +1,6 @@
 package com.cloudthat.productsappv2.event;
 
-import com.cloudthat.elearningbackend.entity.User;
+import com.cloudthat.productsappv2.entity.User;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.ApplicationEvent;
