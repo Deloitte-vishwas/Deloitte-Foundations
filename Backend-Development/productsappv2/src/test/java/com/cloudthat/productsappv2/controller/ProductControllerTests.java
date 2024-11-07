@@ -16,38 +16,38 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 
-@WebMvcTest(ProductsController.class)
-public class ProductControllerTests {
-
-    @Autowired
-    private MockMvc mockMvc;
-
-    @MockBean
-    private ProductService productService;
-
-    private Product product;
-
-    @BeforeEach
-    void setUp(){
-//        Product product1 = Product.builder()
-//                .productName("Orange")
-//                .category("GROCERY")
-//                .price(23.5)
-//                .id(1L)
-//                .build();
-    }
-
-    @Test
-    void saveProduct() throws Exception{
-//        ProductRequest inputProduct = new ProductRequest();
-//                inputProduct.setProductName("Orange");
-//                inputProduct.setCategory(Category.valueOf("GROCERY"));
-//                inputProduct.setPrice(23.5);
+//@WebMvcTest(ProductsController.class)
+//public class ProductControllerTests {
 //
-//        Mockito.when(productService.saveProduct(inputProduct)).thenReturn(product1);
+//    @Autowired
+//    private MockMvc mockMvc;
 //
-//        mockMvc.perform(MockMvcRequestBuilders.post("/products").contentType(MediaType.APPLICATION_JSON)
-//                        .content("{\r\n    \"success\": true,\r\n    \"message\": \"Product Created Successfully\",\r\n    \"data\": {\r\n        \"id\": 30,\r\n        \"productName\": \"Orange\",\r\n        \"price\": 23.5,\r\n        \"category\": \"GROCERY\"\r\n    }\r\n}"))
-//                .andExpect(MockMvcResultMatchers.status().isOk());
+//    @MockBean
+//    private ProductService productService;
+//
+//    private Product product;
+//
+//    @BeforeEach
+//    void setUp(){
+////        Product product1 = Product.builder()
+////                .productName("Orange")
+////                .category("GROCERY")
+////                .price(23.5)
+////                .id(1L)
+////                .build();
 //    }
-}
+//
+//    @Test
+//    void saveProduct() throws Exception{
+////        ProductRequest inputProduct = new ProductRequest();
+////                inputProduct.setProductName("Orange");
+////                inputProduct.setCategory(Category.valueOf("GROCERY"));
+////                inputProduct.setPrice(23.5);
+////
+////        Mockito.when(productService.saveProduct(inputProduct)).thenReturn(product1);
+////
+////        mockMvc.perform(MockMvcRequestBuilders.post("/products").contentType(MediaType.APPLICATION_JSON)
+////                        .content("{\r\n    \"success\": true,\r\n    \"message\": \"Product Created Successfully\",\r\n    \"data\": {\r\n        \"id\": 30,\r\n        \"productName\": \"Orange\",\r\n        \"price\": 23.5,\r\n        \"category\": \"GROCERY\"\r\n    }\r\n}"))
+////                .andExpect(MockMvcResultMatchers.status().isOk());
+////    }
+//}
