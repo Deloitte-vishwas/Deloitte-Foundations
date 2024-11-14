@@ -3,6 +3,9 @@ package com.cloudthat.productsappv2.utility;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +23,9 @@ public class JWTUtility implements Serializable {
 
 	    public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
 
-	    //@Value("${jwt.secretKey}")
+
+//	    @Value("${jwt.secretkey}")
+//		private  String secretKey;
 	    private String secretKey = "secrets8o7gvk7icretsecret1kjsahdoiuewkjsbdksdfkajlsfdlkjasdflkasfd";
 	    
 	    

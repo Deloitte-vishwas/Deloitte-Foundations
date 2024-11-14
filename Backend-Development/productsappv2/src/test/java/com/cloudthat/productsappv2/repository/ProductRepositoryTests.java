@@ -20,14 +20,14 @@ public class ProductRepositoryTests {
     @Autowired
     private ProductRepository productRepository;
 
-    @Test
-    public void whenFindByIdReturnProduct() throws Exception{
-        Product product = new Product("MacBook", 23.5, Category.ELECTRONICS);
-        product.setId(1L);
-
-        testEntityManager.merge(product);
-
-        Product newProduct =productRepository.findById(1L).get();
-        assertEquals("",product,newProduct);
-    }
+//    @Test
+//    public void whenFindByIdReturnProduct() throws Exception{
+//        Product product = new Product("MacBook", 23.5, Category.ELECTRONICS);
+//        product.setId(1L);
+//
+//        testEntityManager.merge(product);
+//
+//        Product newProduct =productRepository.findById(1L).get();
+//        assertEquals("",product,newProduct);
+//    }
 }

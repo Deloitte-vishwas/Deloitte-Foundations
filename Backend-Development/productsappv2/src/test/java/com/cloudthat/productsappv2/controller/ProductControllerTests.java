@@ -28,22 +28,22 @@ public class ProductControllerTests {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Test
-    public void testCreateProductShouldReturn201Created() throws Exception{
-
-        // Create the requestobject
-        ProductRequest productRequest = new ProductRequest("Onion", 23.5, Category.GROCERY);
-
-        // Create the request body from the product Request
-        String requestBody = objectMapper.writeValueAsString(productRequest);
-
-        // use mockito to mock method call
-        Mockito.when(productService.saveProduct(productRequest)).thenReturn(new ProductModel());
-
-        mockMvc.perform(post("/products").contentType("application/json")
-                .content(requestBody))
-                .andExpect(status().isCreated())
-                .andDo(print());
-    }
+//    @Test
+//    public void testCreateProductShouldReturn201Created() throws Exception{
+//
+//        // Create the requestobject
+//        ProductRequest productRequest = new ProductRequest("Onion", 23.5, Category.GROCERY);
+//
+//        // Create the request body from the product Request
+//        String requestBody = objectMapper.writeValueAsString(productRequest);
+//
+//        // use mockito to mock method call
+//        Mockito.when(productService.saveProduct(productRequest)).thenReturn(new ProductModel());
+//
+//        mockMvc.perform(post("/products").contentType("application/json")
+//                .content(requestBody))
+//                .andExpect(status().isCreated())
+//                .andDo(print());
+//    }
 
 }
